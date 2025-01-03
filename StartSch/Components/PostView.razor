@@ -5,12 +5,10 @@
 <div class="post">
     <h1>@Post.Title</h1>
     <div style="display: flex; align-items: center; gap: 8px">
-        <div class="tags" style="margin: 2px 0">
-            @foreach (var group in Post.Groups)
-            {
-                <div>@(group.PincerName ?? group.PekName)</div>
-            }
-        </div>
+        @foreach (var group in Post.Groups)
+        {
+            <GroupChip Group="@group"/>
+        }
 
         @if (isDraft)
         {

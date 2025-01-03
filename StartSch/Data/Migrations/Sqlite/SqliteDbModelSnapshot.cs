@@ -73,6 +73,10 @@ namespace StartSch.Data.Migrations.Sqlite
                     b.Property<DateTime>("CreatedUtc")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("DescriptionMarkdown")
+                        .HasMaxLength(50000)
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Discriminator")
                         .IsRequired()
                         .HasMaxLength(8)
@@ -89,7 +93,7 @@ namespace StartSch.Data.Migrations.Sqlite
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(255)
+                        .HasMaxLength(130)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

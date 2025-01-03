@@ -88,10 +88,11 @@ public class Event
 {
     public int Id { get; init; }
     public int? ParentId { get; init; }
+    public required DateTime CreatedUtc { get; init; }
     public required DateTime StartUtc { get; set; }
     public DateTime? EndUtc { get; set; }
-    public required DateTime CreatedUtc { get; init; }
-    [MaxLength(255)] public required string Title { get; set; }
+    [MaxLength(130)] public required string Title { get; set; }
+    [MaxLength(50000)] public string? DescriptionMarkdown { get; set; }
 
     public Event? Parent { get; init; }
     public List<Group> Groups { get; } = [];
